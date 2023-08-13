@@ -45,9 +45,9 @@
                     <input type="date" class="form-control" id="enrollmentDate" placeholder="Enter Enrollment-Date"
                            name="enrollmentDate">
                 </div>
-                <input type="button" class="btn btn-primary" id="stuSave" value="Save" onclick="saveStudent();">
-                <input type="button" class="btn btn-primary" id="stuUpdate" value="Update" onclick="updateStudent();">
-                <input type="button" class="btn btn-primary" id="stuReset" value="Reset" onclick="stuReset();">
+                <input type="button" class="btn btn-primary" id="stuSave" value="Save" onclick="saveStudent()" disabled>
+                <input type="button" class="btn btn-primary" id="stuUpdate" value="Update" onclick="updateStudent()" disabled>
+                <input type="button" class="btn btn-primary" id="stuReset" value="Reset" onclick="stuReset()" disabled>
 
             </form>
         </div>
@@ -63,12 +63,12 @@
 
             function validateData() {
                 var rollno, fullName, stuClass, birthDate, address, enrollmentDate;
-                var rollno = $("#rollno").val();
-                var fullName = $("#fullName").val();
-                var stuClass = $("#class").val();
-                var birthDate = $("#birthDate").val();
-                var address = $("#address").val();
-                var enrollmentDate = $("#enrollmentDate").val();
+                 rollno = $("#rollno").val();
+                 fullName = $("#fullName").val();
+                 stuClass = $("#class").val();
+                 birthDate = $("#birthDate").val();
+                 address = $("#address").val();
+                 enrollmentDate = $("#enrollmentDate").val();
 
                 if (rollno === "") {
                     alert("Roll-No Missing");
@@ -153,8 +153,8 @@
             function fillData(jsonObj) {
                 saveRecNo2LS(jsonObj);
                 var record = JSON.parse(jsonObj.data).record;
-                $("#fullName").val(record.name);
-                $("#class").val(record.stuClass);
+                $("#fullName").val(record.fullName);
+                $("#class").val(record.class);
                 $("#birthDate").val(record.birthDate);
                 $("#address").val(record.address);
                 $("#enrollmentDate").val(record.enrollmentDate);
